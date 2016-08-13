@@ -83,10 +83,14 @@ def select_sort(array):
 
 
 
-def merge_sort(array):
+# def merge_sort(array):
 
 
+# 2.2, 堆排序
+# 算法：是数据结构-堆，堆排序是选择排序种类的一部分。它的提升是用到了对数时间优先队列（即堆）而不是线性时间搜索。
+# 堆排序是一种 in-place algorithm，但不是稳定的排序。
 
+# def heap_sort(array):
 
 
 
