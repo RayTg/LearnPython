@@ -60,9 +60,10 @@ def select_sort(array):
             array[i] = array[iMin]
             array[iMin] = tmp
 
-        print("result: " + str(array))
+    return array
 
-# select_sort(A)
+
+#select_sort(A)
 
 
 # 插入排序与选择排序的区别
@@ -81,16 +82,32 @@ def select_sort(array):
 # 算法：是一种基于“分治”策略的一种算法。
 # 归并排序算法是典型的分治算法，对于规模较大的问题，可以分解成若干容易求解的简单的问题，最后把解合并构成初始问题的解
 
+def merge_sort(array):
+    if len(array) <= 1:
+        return array
+    mid = int(len(array) / 2)
+    left = merge_sort(array[:mid])
+    right = merge_sort(array[mid:])    #先拆分，直到最小单元
+    result = []
 
+    while len(left) > 0 and len(right) > 0:
+        if left[0] > right[0]:
+            result.append(right.pop(0))
+        else:
+            result.append(left.pop(0))
+    if len(left) > 0:
+        result.extend(merge_sort(left)) #剩下的列表全部添加到result中
+    else:
+        result.extend(merge_sort(right))
+    return result
 
-# def merge_sort(array):
+#print(merge_sort(A))
 
-
-# 2.2, 堆排序
+    # 2.2, 堆排序
 # 算法：是数据结构-堆，堆排序是选择排序种类的一部分。它的提升是用到了对数时间优先队列（即堆）而不是线性时间搜索。
 # 堆排序是一种 in-place algorithm，但不是稳定的排序。
 
-# def heap_sort(array):
+#def heap_sort(array):
 
 
 
