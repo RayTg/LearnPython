@@ -39,23 +39,18 @@ def insert_sort(array):
     for i in range(1, len(array)):
         j = i
         while j > 0 and array[j] < array[j - 1]:  # 升序
-            # print(array)
-            tmp = array[j - 1]
-            array[j - 1] = array[j]
-            array[j] = tmp
+            array[j], array[j-1] = array[j-1], array[j]
             j -= 1
     return array
 
 
-# insert_sort(A)
+# print(insert_sort(A))
 
 
 
 # 1.2, 选择排序
 # 算法流程：将数组分为两部分，一部分是已经排好顺序的，另一部分是未排序的。每次找数组后半部分中最小的一个元素排到前面的序列
 # 选择排序最坏，最好，平均情况都是O(n^2).
-
-
 
 def select_sort(array):
     n = len(array)
@@ -64,13 +59,11 @@ def select_sort(array):
         for j in range(i + 1, n):
             if array[i_min] > array[j]:  # 不断替换最小的索引
                 i_min = j
-            tmp = array[i]
-            array[i] = array[i_min]
-            array[i_min] = tmp
+            array[i_min], array[i] = array[i], array[i_min]
     return array
 
 
-# select_sort(A)
+# print select_sort(A)
 
 
 # 插入排序与选择排序的区别
